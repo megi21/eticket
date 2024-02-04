@@ -81,7 +81,6 @@ public class ETicketController {
     }
     
     @PostMapping("/updateTicket")
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<String> updateTicket(@RequestBody Ticket ticket) {
         try {
             ticketService.updateTicket(ticket);
@@ -93,7 +92,6 @@ public class ETicketController {
     }
     
 	@PostMapping("/payTicket")
-	@PreAuthorize("hasAuthority('ROLE_USER')")
 	public ResponseEntity<PaymentDto> payTicket(@RequestParam Long id, @RequestParam Double amount) {
 		try {
 			PaymentDto payment = ticketService.payTicket(id, amount);

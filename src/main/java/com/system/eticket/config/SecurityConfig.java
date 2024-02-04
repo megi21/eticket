@@ -45,7 +45,7 @@ public class SecurityConfig {
              		"/auth/addNewUser", 
              		"/swagger-iu.html",
              		"/auth/login").permitAll();
-             rq.requestMatchers("/start/addNewTicket","/start/addNewOfficial").hasAnyAuthority("ROLE_ADMIN");
+             rq.requestMatchers("/start/addNewTicket","/start/addNewOfficial","/start/updateTicket").hasAnyAuthority("ROLE_ADMIN");
              rq.requestMatchers("/start/getTicket").hasAnyAuthority("ROLE_ADMIN","ROLE_USER");
              rq.requestMatchers("/start/payTicket").hasAnyAuthority("ROLE_USER");
              rq.anyRequest().authenticated();
